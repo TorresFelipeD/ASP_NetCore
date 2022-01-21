@@ -38,3 +38,4 @@ C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\ref\ASP_NetCore.dll
 C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\ASP_NetCore.pdb
 C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\ASP_NetCore.genruntimeconfig.cache
 C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\ASP_NetCore.csproj.CopyComplete
+C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\Razor\Views\Escuela\Index.cshtml.g.cs
