@@ -9,11 +9,10 @@ namespace ASP_NetCore.Controllers
         public IActionResult Index(){
             Random rdm = new Random();
 
-            return View(new Escuela(){
-                EscuelaId = "1",
-                Nombre = "Academia",
-                AñoFundacion = DateTime.Now.AddYears(-rdm.Next(5)).Year.ToString()
-            });
+            return View(new Escuela(
+                NombreEscuela: "Academia",
+                AñoGraduacion: DateTime.Now.AddYears(-rdm.Next(5)).Year
+            ));
         }
     }
 }
