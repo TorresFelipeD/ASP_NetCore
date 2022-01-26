@@ -1,0 +1,15 @@
+﻿@model Asignatura;
+
+@{
+    ViewData["Title"] = "Información Asignatura";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <div>
+        <div>
+            <p>Id Asignatura: @Model.UniqueId</p>
+        </div>
+        <p>Nombre: @Model.Nombre</p>
+    </div>
+</div>

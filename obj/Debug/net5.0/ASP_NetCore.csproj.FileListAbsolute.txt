@@ -356,3 +356,4 @@ C:\PROYECTOS\ASP_NetCore\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resou
 C:\PROYECTOS\ASP_NetCore\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\PROYECTOS\ASP_NetCore\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\ASP_NetCore.MvcApplicationPartsAssemblyInfo.cs
+C:\PROYECTOS\ASP_NetCore\obj\Debug\net5.0\Razor\Views\Asignatura\Index.cshtml.g.cs

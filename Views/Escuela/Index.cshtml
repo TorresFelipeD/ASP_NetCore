@@ -7,8 +7,17 @@
 <div>
     <h1>@ViewData["Title"]</h1>
     <div>
-        <p>Escuela: @ViewData["Title"]</p>
-        <p>Nombre: @Model.NombreEscuela</p>
+        <div>
+            <p>Id Escuela: @Model.UniqueId</p>
+        </div>
+        <p>Escuela: @Model.NombreEscuela</p>
+        <p>Nombre: @Model.Nombre</p>
+        <address>
+            <p>Dirección: @Model.Address</p>
+        </address>
+            <p>Ciudad: @Model.Ciudad</p>
+            <p>País: @Model.Pais</p>
+            <p>Tipo Escuela: @Model.TipoEscuela</p>
         <p><strong>Año fundación: @Model.AñoGraduacion</strong></p>
     </div>
 </div>
