@@ -7,9 +7,14 @@
 <div>
     <h1>@ViewData["Title"]</h1>
     <div>
+        <strong>Vista Normal</strong>
         <div>
             <p>Id Asignatura: @Model.UniqueId</p>
+            <p>Nombre: @Model.Nombre</p>
         </div>
-        <p>Nombre: @Model.Nombre</p>
+    </div>
+    <div>
+        <strong>Vista parcial</strong>
+        <partial name="AsignaturaSimple" /> 
     </div>
 </div>
