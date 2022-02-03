@@ -7,11 +7,11 @@
 <div>
     <h1>@ViewData["Title"]</h1>
     <hr>
-@foreach (var asignatura in Model)
+@foreach (var objEscuela in Model)
 {
    <div>
         <strong>Vista parcial</strong>
-        <partial name="AsignaturaSimple" model="asignatura" /> 
+        <partial name="_ObjetoEscuelaSimple" model="objEscuela" /> 
     </div> 
 }
     
