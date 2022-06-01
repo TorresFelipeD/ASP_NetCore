@@ -1,11 +1,14 @@
 using System;
+using System.Linq;
 using ASP_NetCore.Models;
+using ASP_NetCore.Models.InMemory;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_NetCore.Controllers
 {
     public class EscuelaController : Controller
     {
+        private readonly EscuelaContext _context;
         public IActionResult Index()
         {
             Random rdm = new Random();
@@ -19,7 +22,14 @@ namespace ASP_NetCore.Controllers
             escuela.Address = "Av Cll 55 # 84 - 66";
             escuela.TipoEscuela = TiposEscuela.PreEscolar;
 
-            return View(escuela);
+            var escuela_ = _context.Escuelas.FirstOrDefault();
+
+            return View(escuela_);
+        }
+
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }

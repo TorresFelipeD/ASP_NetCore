@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASP_NetCore.Models.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP_NetCore
 {
@@ -26,6 +28,9 @@ namespace ASP_NetCore
             services.AddControllersWithViews();
             services.AddMvc();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddDbContext<EscuelaContext>(
+                options => options.UseInMemoryDatabase(databaseName: "testDB")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
