@@ -8,7 +8,6 @@ namespace ASP_NetCore.Controllers
 {
     public class EscuelaController : Controller
     {
-        private readonly EscuelaContext _context;
         public IActionResult Index()
         {
             Random rdm = new Random();
@@ -26,7 +25,7 @@ namespace ASP_NetCore.Controllers
 
             return View(escuela_);
         }
-
+        private readonly EscuelaContext _context;
         public EscuelaController(EscuelaContext context)
         {
             _context = context;

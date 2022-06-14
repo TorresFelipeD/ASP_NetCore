@@ -27,7 +27,7 @@ namespace ASP_NetCore
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "Ocurrio un error");
+                    logger.LogError(ex, ex.Message);
                 }
             }
             host.Run();

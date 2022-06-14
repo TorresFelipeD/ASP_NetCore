@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using ASP_NetCore.Models;
+using ASP_NetCore.Models.InMemory;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_NetCore.Controllers
@@ -14,7 +16,7 @@ namespace ASP_NetCore.Controllers
                 Nombre = "Matematicas"
             };
 
-            return View(asignatura);
+            return View(_context.Asignaturas.FirstOrDefault());
         }
 
         public IActionResult MultiAsignatura(){
@@ -24,7 +26,12 @@ namespace ASP_NetCore.Controllers
                 new Asignatura(){Nombre = "Historia"},
                 new Asignatura(){Nombre = "Ciencias"}
             };
-            return View(listAsignatura);
+            return View(_context.Asignaturas.ToList());
+        }
+        private readonly EscuelaContext _context;
+        public AsignaturaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }

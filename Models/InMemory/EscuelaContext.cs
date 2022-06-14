@@ -54,7 +54,7 @@ namespace ASP_NetCore.Models.InMemory
                                from a1 in apellido1
                                select new Alumno() { Nombre = $"{n1} {n2} {a1}" };
 
-            return listaAlumnos.OrderBy((x) => x.UniqueId).Take(cantidad).ToList();
+            return listaAlumnos.OrderBy((x) => x.Id).Take(cantidad).ToList();
         }
 
     }

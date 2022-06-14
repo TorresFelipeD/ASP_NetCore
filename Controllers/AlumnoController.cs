@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ASP_NetCore.Models;
 using System.Collections.Generic;
 using System.Linq;
+using ASP_NetCore.Models.InMemory;
 
 namespace ASP_NetCore.Controllers
 {
@@ -10,14 +11,14 @@ namespace ASP_NetCore.Controllers
         public IActionResult Index()
         {
             Alumno Alumno = new Alumno() { Nombre = "Dilan Perez" };
-            return View(Alumno);
+            return View(_context.Alumnos.FirstOrDefault());
         }
 
         public IActionResult MultiAlumno()
         {
             List<Alumno> alumnos = GenerarAlumnos(7);
 
-            return View(alumnos);
+            return View(_context.Alumnos.ToList());
         }
 
         private List<Alumno> GenerarAlumnos(int cantidad = 20)
@@ -31,7 +32,13 @@ namespace ASP_NetCore.Controllers
                                from a1 in apellido1
                                select new Alumno() { Nombre = $"{n1} {n2} {a1}" };
 
-            return listaAlumnos.OrderBy((x) => x.UniqueId).Take(cantidad).ToList();
+            return listaAlumnos.OrderBy((x) => x.Id).Take(cantidad).ToList();
+        }
+
+        private readonly EscuelaContext _context;
+        public AlumnoController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }
