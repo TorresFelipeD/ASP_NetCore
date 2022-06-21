@@ -7,19 +7,32 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_NetCore.Controllers
 {
-    public class AsignaturaController  : Controller
+    public class AsignaturaController : Controller
     {
-        public IActionResult Index()
+        [Route("Asignatura/Index/{Id?}")]
+        public IActionResult Index(string Id)
         {
             Random rdm = new Random();
-            Asignatura asignatura = new Asignatura(){
+            Asignatura asignatura = new Asignatura()
+            {
                 Nombre = "Matematicas"
             };
 
-            return View(_context.Asignaturas.FirstOrDefault());
-        }
+            var asignaturaObj = (from asig in _context.Asignaturas
+                                 where asig.Id == Id
+                                 select asig).SingleOrDefault();
 
-        public IActionResult MultiAsignatura(){
+            if (string.IsNullOrEmpty(Id))
+            {
+                return View("MultiAsignatura",_context.Asignaturas.ToList());
+            }
+            else
+            {
+                return View(asignaturaObj);
+            }
+        }
+        public IActionResult MultiAsignatura()
+        {
             var listAsignatura = new List<Asignatura>(){
                 new Asignatura(){Nombre = "Programación"},
                 new Asignatura(){Nombre = "Algebra"},

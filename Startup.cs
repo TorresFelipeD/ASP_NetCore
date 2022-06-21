@@ -28,8 +28,12 @@ namespace ASP_NetCore
             services.AddControllersWithViews();
             services.AddMvc();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            string connecString = ConfigurationExtensions.GetConnectionString(this.Configuration, "DefaultConnectionString");
+
             services.AddDbContext<EscuelaContext>(
-                options => options.UseInMemoryDatabase(databaseName: "testDB")
+                //options => options.UseInMemoryDatabase(databaseName: "AspNetCoreDB")
+                option => option.UseSqlServer(connecString)
             );
         }
 

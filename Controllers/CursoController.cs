@@ -6,30 +6,51 @@ using ASP_NetCore.Models.InMemory;
 
 namespace ASP_NetCore.Controllers
 {
-    public class AlumnoController : Controller
+    public class CursoController : Controller
     {
-        [Route("Alumno/Index/{Id?}")]
+        [Route("Curso/Index/{Id?}")]
         public IActionResult Index(string Id)
         {
-            var AlumnoObj = (from alum in _context.Alumnos
-                                 where alum.Id == Id
-                                 select alum).SingleOrDefault();
+            var CursoObj = (from cur in _context.Cursos
+                            where cur.Id == Id
+                            select cur).SingleOrDefault();
 
             if (string.IsNullOrEmpty(Id))
             {
-                return View("MultiAlumno",_context.Alumnos.ToList());
+                return View("MultiCurso", _context.Cursos.ToList());
             }
             else
             {
-                return View(AlumnoObj);
+                return View(CursoObj);
             }
         }
 
-        public IActionResult MultiAlumno()
+        public IActionResult MultiCurso()
         {
-            List<Alumno> alumnos = GenerarAlumnos(7);
+            return View(_context.Cursos.ToList());
+        }
 
-            return View(_context.Alumnos.ToList());
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            if (ModelState.IsValid)
+            {
+                curso.EscuelaId = _context.Escuelas.FirstOrDefault().Id;
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
+                ViewBag.Success = true;
+                ViewBag.Message = "Curso creado correctamente";
+                return View();
+            }
+            else {
+                ViewBag.Success = false;
+                return View(curso);
+            }
         }
 
         private List<Alumno> GenerarAlumnos(int cantidad = 20)
@@ -47,7 +68,7 @@ namespace ASP_NetCore.Controllers
         }
 
         private readonly EscuelaContext _context;
-        public AlumnoController(EscuelaContext context)
+        public CursoController(EscuelaContext context)
         {
             _context = context;
         }

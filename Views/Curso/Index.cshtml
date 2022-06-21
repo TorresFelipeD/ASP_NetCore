@@ -1,7 +1,7 @@
-﻿@model Asignatura;
+﻿@model Curso;
 
 @{
-    ViewData["Title"] = "Información Asignatura";
+    ViewData["Title"] = "Información Curso";
 }
 
 <div>
@@ -9,9 +9,9 @@
     <div>
         <strong>Vista Normal</strong>
         <div>
-            <p>Id Asignatura: @Model.Id</p>
+            <p>Id: @Model.Id</p>
             <p>Nombre: @Model.Nombre</p>
-            <p>Curso ID: @Model.CursoId</p>
+            <p>Escuela ID: @Model.EscuelaId</p>
         </div>
     </div>
     <div>
